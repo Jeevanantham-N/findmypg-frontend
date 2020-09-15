@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/> -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/semantic.min.css"/>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="%PUBLIC_URL%/styles.css" rel="stylesheet" />
+    <link href="%PUBLIC_URL%/carousel.css" rel="stylesheet" />
+
+    <title>React App</title>
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+      <div id="root">
+        
+      </div>
+
+  <script>
+      $(function() {
+        $(".carousel").on("slide.bs.carousel", function(e) {
+          var prev = $(this)
+            .find(".active")
+            .index();
+          var next = $(e.relatedTarget).index();
+          var video = $("#video-player")[0];
+          var videoSlide = $("#video-player")
+            .closest(".carousel-item")
+            .index();
+          if (next === videoSlide) {
+            if (video.tagName == "IFRAME") {
+              player.playVideo();
+            } else {
+              createVideo(video);
+            }
+          } else {
+            if (typeof player !== "undefined") {
+              player.pauseVideo();
+            }
+          }
+        });
+    });
+  </script> 
+  </body>
+  <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script src="%PUBLIC_URL%/styles.js"></script>
+  <script src="%PUBLIC_URL%/carousel.js"></script>
+</html>
